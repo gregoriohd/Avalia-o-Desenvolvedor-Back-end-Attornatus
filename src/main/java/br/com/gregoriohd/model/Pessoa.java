@@ -12,8 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -33,15 +31,13 @@ public class Pessoa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@NotBlank
-	@NotNull
+
 	private String nome;
-	
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 
-	@OneToMany(mappedBy = "pessoa" , cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Endereco> enderecos;
-	
+
 }
