@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.gregoriohd.model.Pessoa;
 import br.com.gregoriohd.service.PessoaService;
+import br.com.gregoriohd.share.PessoaDTO;
 
 @RestController
 @RequestMapping("/v1/pessoas")
@@ -25,9 +26,9 @@ public class PessoaController {
 	private PessoaService pessoaService;
 
 	@GetMapping
-	public ResponseEntity<List<Pessoa>> obterPessoas() {
-		List<Pessoa> pessoas = pessoaService.obterPessoas();
-		return new ResponseEntity<List<Pessoa>>(pessoas, HttpStatus.OK);
+	public ResponseEntity<List<PessoaDTO>> obterPessoas() {
+		List<PessoaDTO> pessoas = pessoaService.obterPessoas();
+		return new ResponseEntity<List<PessoaDTO>>(pessoas, HttpStatus.OK);
 	}
 
 	@GetMapping("/{pessoaId}")

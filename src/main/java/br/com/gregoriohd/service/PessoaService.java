@@ -3,9 +3,11 @@ package br.com.gregoriohd.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import br.com.gregoriohd.exception.ResourceNotFoudException;
 import br.com.gregoriohd.model.Endereco;
 import br.com.gregoriohd.model.Pessoa;
 import br.com.gregoriohd.repository.PessoaRepository;
+import br.com.gregoriohd.share.PessoaDTO;
 
 @Service
 public class PessoaService {
@@ -23,8 +26,13 @@ public class PessoaService {
 	@Autowired
 	private EnderecoService enderecoService;
 
-	public List<Pessoa> obterPessoas() {
-		return pessoaRepository.findAll();
+	public List<PessoaDTO> obterPessoas() {
+
+		List<Pessoa> pessoas = pessoaRepository.findAll();
+		
+
+		return pessoas.stream().map(pessoa -> new ModelMapper().map(pessoa, PessoaDTO.class))
+				.collect(Collectors.toList());
 	}
 
 	public Optional<Pessoa> obterPessoaPorId(Integer id) {
@@ -59,15 +67,11 @@ public class PessoaService {
 
 	public Pessoa atualizaPessoa(Integer id, Pessoa pessoa) {
 
-		
 		pessoa.setId(obterPessoaPorId(id).get().getId());
 		pessoa.setEnderecos(null);
-		
+
 		return adicionarPessoa(pessoa);
-		
-		
 
 	}
-
 
 }
