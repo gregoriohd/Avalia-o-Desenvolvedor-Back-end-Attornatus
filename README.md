@@ -3,6 +3,7 @@
 
 #### `POST` `/v1/pessoas`
 Essa é a rota que será utilizada para cadastrar uma nova pessoa.
+
 Dados de entrada:
 ```json
 	{
@@ -40,7 +41,8 @@ Dados de saida:
 ```
 
 #### `PATH` `/v1/pessoas/:id`
-Essa é a rota que permite atualizar as informações domente da pessoa.
+Essa é a rota que permite atualizar as informações somente da pessoa.
+
 Dados de Entrada:
 ```json
 {
