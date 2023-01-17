@@ -46,6 +46,7 @@ Dados de saida: `Status code` `201`
 
 <details>
 <summary><b>Editar uma pessoa</b></summary>
+
 #### Rota para editar as informações somente da pessoa. `PATH` `/v1/pessoas/:id`
 
 Dados de entrada:
@@ -76,6 +77,7 @@ Dados de saida: `Status code` `404`
 
 <details>
 <summary><b>Consulta uma pessoa</b></summary>
+
 #### Rota para consulta uma pessoa. `GET` `/v1/pessoas/:id`
 
 
@@ -109,6 +111,7 @@ Dados de saida: `Status code` `404`
 
 <details>
 <summary><b>Listar pessoas</b></summary>
+
 #### Rota para listar pessoas. `GET` `/v1/pessoas/`
 
 Dados de saida: `Stattus code` `200`
@@ -150,6 +153,7 @@ Dados de saida: `Stattus code` `200`
 
 <details>
 <summary><b>Criar endereco para pessoas</b></summary>
+
 #### Rota para criar endereço para pessoa. `POST` `/v1/pessoas/:id/enderecos`
 
 Dados de entrada:
@@ -184,6 +188,7 @@ Dados de saida: `Status code` `404`
 
 <details>
 <summary><b>Listar endereços da pessoas</b></summary>
+
 #### Rota para listar endereços para pessoa. `GET` `/v1/pessoas/:id/enderecos`
 
 Dados de saida: `Stattus code` `200`
@@ -219,6 +224,7 @@ Dados de saida: `Status code` `404`
 
 <details>
 <summary><b>Editar endereco da pessoas</b></summary>
+
 #### Rota para editar as informações do endereço da pessoa. `PATH` `/v1/pessoas/:id/enderecos/:id`
 
 Dados de entrada: 
